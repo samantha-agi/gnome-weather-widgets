@@ -1,0 +1,37 @@
+{
+  "element_id": "dust-day__Dust 1",
+  "element_tag": "circle",
+  "svg_file": "dust-1.svg",
+  "animations": [
+    {
+      "type": "transform",
+      "attribute_name": "transform",
+      "duration_ms": 3000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "transform_type": "translate",
+      "values": [
+        "0 0",
+        "8 -4"
+      ],
+      "calc_mode": "spline",
+      "key_splines": ".42 0 .58 1"
+    },
+    {
+      "type": "attribute",
+      "attribute_name": "opacity",
+      "duration_ms": 3000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "values": [
+        "0",
+        "1",
+        "1",
+        "0"
+      ],
+      "key_times": "0;0.2;0.8;1",
+      "calc_mode": null,
+      "key_splines": null
+    }
+  ]
+}

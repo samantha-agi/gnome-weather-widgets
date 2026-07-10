@@ -1,0 +1,21 @@
+{
+  "element_id": "haze-day__Rays",
+  "element_tag": "g",
+  "svg_file": "rays.svg",
+  "animations": [
+    {
+      "type": "transform",
+      "attribute_name": "transform",
+      "duration_ms": 6000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "transform_type": "rotate",
+      "values": [
+        "0 64.0 72.0",
+        "360 64.0 72.0"
+      ],
+      "calc_mode": null,
+      "key_splines": null
+    }
+  ]
+}

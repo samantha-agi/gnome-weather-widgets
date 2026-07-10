@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="overcast-rain__paint0_linear_1858_8376" x1="88" x2="88" y1="44" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b0bccd" />
+      <stop offset="1" stop-color="#94a3b8" />
+    </linearGradient>
+    <linearGradient id="overcast-rain__paint1_linear_1858_8376" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="overcast-rain__clip0_1858_8376">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <path id="overcast-rain__Raindrop 3" stroke="#0a5ad4" stroke-linecap="round" stroke-width="4" d="M76 83v12" />
+</svg>

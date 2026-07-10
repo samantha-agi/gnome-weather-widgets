@@ -1,0 +1,20 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "secondary-cloud.svg",
+      "sidecar_file": "secondary-cloud.json",
+      "element_id": "thunderstorms-overcast__Secondary Cloud"
+    },
+    {
+      "svg_file": "cloud-2.svg",
+      "sidecar_file": "cloud-2.json",
+      "element_id": "thunderstorms-overcast__Cloud_2"
+    },
+    {
+      "svg_file": "lightning-bolt.svg",
+      "sidecar_file": "lightning-bolt.json",
+      "element_id": "thunderstorms-overcast__Lightning Bolt"
+    }
+  ]
+}

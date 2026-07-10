@@ -1,0 +1,10 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "moon.svg",
+      "sidecar_file": "moon.json",
+      "element_id": "clear-night__Moon"
+    }
+  ]
+}

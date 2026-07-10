@@ -1,0 +1,15 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "secondary-cloud.svg",
+      "sidecar_file": "secondary-cloud.json",
+      "element_id": "overcast__Secondary Cloud"
+    },
+    {
+      "svg_file": "cloud-2.svg",
+      "sidecar_file": "cloud-2.json",
+      "element_id": "overcast__Cloud_2"
+    }
+  ]
+}

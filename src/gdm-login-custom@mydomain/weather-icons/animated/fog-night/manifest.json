@@ -1,0 +1,30 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "mask0-1868-4607.svg",
+      "sidecar_file": "mask0-1868-4607.json",
+      "element_id": "fog-night__mask0_1868_4607"
+    },
+    {
+      "svg_file": "mask.svg",
+      "sidecar_file": "mask.json",
+      "element_id": "fog-night__Mask"
+    },
+    {
+      "svg_file": "moon.svg",
+      "sidecar_file": "moon.json",
+      "element_id": "fog-night__Moon"
+    },
+    {
+      "svg_file": "line-2.svg",
+      "sidecar_file": "line-2.json",
+      "element_id": "fog-night__Line 2"
+    },
+    {
+      "svg_file": "line-1.svg",
+      "sidecar_file": "line-1.json",
+      "element_id": "fog-night__Line 1"
+    }
+  ]
+}

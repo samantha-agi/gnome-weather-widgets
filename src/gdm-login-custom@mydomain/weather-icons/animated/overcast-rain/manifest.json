@@ -1,0 +1,30 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "secondary-cloud.svg",
+      "sidecar_file": "secondary-cloud.json",
+      "element_id": "overcast-rain__Secondary Cloud"
+    },
+    {
+      "svg_file": "cloud-2.svg",
+      "sidecar_file": "cloud-2.json",
+      "element_id": "overcast-rain__Cloud_2"
+    },
+    {
+      "svg_file": "raindrop-1.svg",
+      "sidecar_file": "raindrop-1.json",
+      "element_id": "overcast-rain__Raindrop 1"
+    },
+    {
+      "svg_file": "raindrop-2.svg",
+      "sidecar_file": "raindrop-2.json",
+      "element_id": "overcast-rain__Raindrop 2"
+    },
+    {
+      "svg_file": "raindrop-3.svg",
+      "sidecar_file": "raindrop-3.json",
+      "element_id": "overcast-rain__Raindrop 3"
+    }
+  ]
+}

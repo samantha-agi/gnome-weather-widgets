@@ -1,0 +1,301 @@
+/* GDM Login Customizer — structural stylesheet (no colors here) */
+/* Colors live in theme.css, generated from user settings. */
+
+/* ---------------------------------------------------------------------------
+ * Left widget container: moon + clock (top) + weather (bottom)
+ * ------------------------------------------------------------------------- */
+.glc-left-widget {
+    padding: 24px 32px;
+    spacing: 16px;
+    border-radius: 18px;
+}
+
+.glc-top-row {
+    spacing: 24px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Clock
+ * ------------------------------------------------------------------------- */
+.glc-clock-box {
+    spacing: 4px;
+}
+
+.glc-clock-time {
+    font-size: 64px;
+    font-weight: 900;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+}
+
+.glc-clock-date {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    padding-top: 2px;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+ * Power-off button
+ * ------------------------------------------------------------------------- */
+.glc-power-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    padding: 12px;
+    transition-duration: 200ms;
+}
+
+.glc-power-button:active {
+}
+
+.glc-power-button:focus {
+    outline: 2px solid rgba(255, 215, 0, 0.75);
+}
+
+/* ---------------------------------------------------------------------------
+ * Confirmation dialog
+ * ------------------------------------------------------------------------- */
+.glc-confirm-backdrop {
+}
+
+.glc-confirm-dialog {
+    min-width: 420px;
+    max-width: 520px;
+    padding: 28px 32px;
+    spacing: 14px;
+    border-radius: 14px;
+}
+
+.glc-confirm-title {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+}
+
+.glc-confirm-body {
+    font-size: 15px;
+    text-align: center;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    padding-bottom: 6px;
+}
+
+.glc-confirm-buttons {
+    spacing: 14px;
+    margin-top: 4px;
+}
+
+.glc-confirm-button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    transition-duration: 150ms;
+}
+
+.glc-confirm-cancel {
+    border: 1px solid #555;
+}
+
+.glc-confirm-ok {
+    border: 1px solid #d04040;
+}
+
+/* ---------------------------------------------------------------------------
+ * Weather widget
+ * ------------------------------------------------------------------------- */
+.glc-weather {
+    spacing: 12px;
+    margin-top: 8px;
+    padding-top: 12px;
+}
+
+.glc-weather-current {
+    spacing: 16px;
+}
+
+.glc-weather-current-icon {
+}
+
+.glc-weather-info {
+    spacing: 2px;
+}
+
+.glc-weather-temp {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+}
+
+.glc-weather-desc {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    opacity: 0.85;
+}
+
+.glc-weather-forecast {
+    spacing: 4px;
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+.glc-weather-day-header {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+.glc-weather-day-header:first-child {
+    margin-top: 0;
+}
+
+.glc-weather-forecast-item {
+    spacing: 10px;
+    height: 40px;
+}
+
+.glc-weather-forecast-time {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    opacity: 0.85;
+    width: 40px;
+}
+
+.glc-weather-forecast-icon {
+}
+
+.glc-weather-forecast-temp {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    width: 40px;
+}
+
+.glc-weather-forecast-wind-icon {
+}
+
+.glc-weather-forecast-wind-text {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    opacity: 0.75;
+    width: 45px;
+}
+
+/* ---------------------------------------------------------------------------
+ * User session — topbar weather button + slide-down panel
+ * ------------------------------------------------------------------------- */
+.glc-weather-button {
+    padding: 0 12px;
+    height: 32px;
+    border-radius: 6px;
+    transition-duration: 150ms;
+}
+
+.glc-weather-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.glc-weather-button-content {
+    spacing: 6px;
+}
+
+.glc-weather-button-label {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+}
+
+.glc-weather-panel {
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Settings modal
+ * ------------------------------------------------------------------------- */
+.glc-settings-backdrop {
+}
+
+.glc-settings-dialog {
+    min-width: 380px;
+    max-width: 480px;
+    padding: 24px 28px;
+    spacing: 16px;
+    border-radius: 14px;
+}
+
+.glc-settings-title {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    text-align: center;
+}
+
+.glc-settings-row {
+    spacing: 12px;
+    height: 36px;
+}
+
+.glc-settings-label {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    width: 100px;
+}
+
+.glc-settings-entry {
+    font-size: 14px;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    padding: 4px 8px;
+    border-radius: 6px;
+    width: 200px;
+}
+
+.glc-settings-entry-error {
+    border: 2px solid #ff4444;
+}
+
+.glc-settings-buttons {
+    spacing: 12px;
+    margin-top: 8px;
+}
+
+.glc-settings-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+}
+
+.glc-settings-gear {
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Loading widget — cloud + spinning ring + text
+ * ------------------------------------------------------------------------- */
+.glc-loading {
+    spacing: 12px;
+    padding: 20px;
+}
+
+.glc-loading-text {
+    font-size: 13px;
+    font-weight: 500;
+    font-family: "Cantarell", "Inter", "DejaVu Sans", sans-serif;
+    text-align: center;
+    white-space: nowrap;
+}

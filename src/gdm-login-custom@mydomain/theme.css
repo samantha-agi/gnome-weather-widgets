@@ -1,0 +1,166 @@
+/* GDM Login Customizer — theme (colors only, generated from settings) */
+/* This file is rewritten by settingsModal.js when the user changes the accent color. */
+/* Default accent color: #f56691 (rgb 245, 102, 145) */
+
+.glc-left-widget {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.glc-clock-time {
+    color: #f56691;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.glc-clock-date {
+    color: #f56691;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.glc-power-button {
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(245, 102, 145, 0.35);
+    color: #f56691;
+}
+
+.glc-power-button:hover {
+    background-color: rgba(245, 102, 145, 0.75);
+    border: 1px solid rgba(245, 102, 145, 0.85);
+    color: #FFFFFF;
+}
+
+.glc-power-button:active {
+    background-color: rgba(140, 20, 20, 0.9);
+}
+
+.glc-confirm-backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.glc-confirm-dialog {
+    background-color: #1d1d1d;
+    border: 1px solid rgba(245, 102, 145, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+}
+
+.glc-confirm-title {
+    color: #f56691;
+}
+
+.glc-confirm-body {
+    color: #e6e6e6;
+}
+
+.glc-confirm-cancel {
+    background-color: #3a3a3a;
+    color: #e6e6e6;
+}
+
+.glc-confirm-cancel:hover {
+    background-color: #4a4a4a;
+}
+
+.glc-confirm-ok {
+    background-color: #b22222;
+    color: #ffffff;
+}
+
+.glc-confirm-ok:hover {
+    background-color: #c93030;
+}
+
+.glc-weather {
+    border-top: 1px solid rgba(245, 102, 145, 0.2);
+}
+
+.glc-weather-temp {
+    color: #f56691;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-desc {
+    color: #f56691;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-forecast {
+    border-top: 1px solid rgba(245, 102, 145, 0.2);
+}
+
+.glc-weather-day-header {
+    color: #f56691;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-forecast-time {
+    color: #f56691;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-forecast-temp {
+    color: #f56691;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-forecast-wind-icon {
+    color: #f56691;
+}
+
+.glc-weather-forecast-wind-text {
+    color: #f56691;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.glc-weather-button-label {
+    color: #f56691;
+}
+
+.glc-weather-panel {
+    background-color: rgba(0, 0, 0, 0.92);
+    border: 1px solid rgba(245, 102, 145, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.glc-settings-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.glc-settings-dialog {
+    background-color: #1d1d1d;
+    border: 1px solid rgba(245, 102, 145, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.glc-settings-title {
+    color: #f56691;
+}
+
+.glc-settings-label {
+    color: #e6e6e6;
+}
+
+.glc-settings-entry {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(245, 102, 145, 0.3);
+}
+
+.glc-settings-entry:focus {
+    border: 1px solid rgba(245, 102, 145, 0.8);
+}
+
+.glc-settings-button {
+    border: 1px solid rgba(245, 102, 145, 0.3);
+    color: #f56691;
+}
+
+.glc-settings-button:hover {
+    background-color: rgba(245, 102, 145, 0.2);
+}
+
+.glc-settings-gear {
+    color: #f56691;
+}
+
+.glc-loading-text {
+    color: #f56691;
+}

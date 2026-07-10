@@ -1,0 +1,22 @@
+{
+  "element_id": "partly-cloudy-night-sleet__Moon",
+  "element_tag": "g",
+  "svg_file": "moon.svg",
+  "animations": [
+    {
+      "type": "transform",
+      "attribute_name": "transform",
+      "duration_ms": 3000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "transform_type": "rotate",
+      "values": [
+        "-6 36.9 47.0",
+        "6 36.9 47.0",
+        "-6 36.9 47.0"
+      ],
+      "calc_mode": "spline",
+      "key_splines": ".42 0 .58 1; .42 0 .58 1"
+    }
+  ]
+}

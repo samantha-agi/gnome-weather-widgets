@@ -1,0 +1,30 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "moon.svg",
+      "sidecar_file": "moon.json",
+      "element_id": "partly-cloudy-night-rain__Moon"
+    },
+    {
+      "svg_file": "clouds.svg",
+      "sidecar_file": "clouds.json",
+      "element_id": "partly-cloudy-night-rain__Clouds"
+    },
+    {
+      "svg_file": "raindrop-1.svg",
+      "sidecar_file": "raindrop-1.json",
+      "element_id": "partly-cloudy-night-rain__Raindrop 1"
+    },
+    {
+      "svg_file": "raindrop-2.svg",
+      "sidecar_file": "raindrop-2.json",
+      "element_id": "partly-cloudy-night-rain__Raindrop 2"
+    },
+    {
+      "svg_file": "raindrop-3.svg",
+      "sidecar_file": "raindrop-3.json",
+      "element_id": "partly-cloudy-night-rain__Raindrop 3"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "core.svg",
+      "sidecar_file": "core.json",
+      "element_id": "clear-day__Core"
+    },
+    {
+      "svg_file": "rays.svg",
+      "sidecar_file": "rays.json",
+      "element_id": "clear-day__Rays"
+    }
+  ]
+}

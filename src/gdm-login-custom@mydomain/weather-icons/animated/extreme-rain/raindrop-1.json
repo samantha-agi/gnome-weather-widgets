@@ -1,0 +1,37 @@
+{
+  "element_id": "extreme-rain__Raindrop 1",
+  "element_tag": "path",
+  "svg_file": "raindrop-1.svg",
+  "animations": [
+    {
+      "type": "transform",
+      "attribute_name": "transform",
+      "duration_ms": 1000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "transform_type": "translate",
+      "values": [
+        "0 0",
+        "0 20"
+      ],
+      "calc_mode": "spline",
+      "key_splines": ".42 0 1 1"
+    },
+    {
+      "type": "attribute",
+      "attribute_name": "opacity",
+      "duration_ms": 1000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "values": [
+        "0",
+        "1",
+        "1",
+        "0"
+      ],
+      "key_times": "0;0.15;0.85;1",
+      "calc_mode": null,
+      "key_splines": null
+    }
+  ]
+}

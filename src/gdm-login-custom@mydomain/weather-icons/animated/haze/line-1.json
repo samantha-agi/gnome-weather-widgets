@@ -1,0 +1,22 @@
+{
+  "element_id": "haze__Line 1",
+  "element_tag": "path",
+  "svg_file": "line-1.svg",
+  "animations": [
+    {
+      "type": "transform",
+      "attribute_name": "transform",
+      "duration_ms": 3000,
+      "begin_ms": -2800,
+      "repeat_count": "indefinite",
+      "transform_type": "translate",
+      "values": [
+        "0 0",
+        "3 0",
+        "0 0"
+      ],
+      "calc_mode": "spline",
+      "key_splines": ".42 0 .58 1; .42 0 .58 1"
+    }
+  ]
+}

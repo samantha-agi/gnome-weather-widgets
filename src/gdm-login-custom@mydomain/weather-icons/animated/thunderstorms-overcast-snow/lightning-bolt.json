@@ -1,0 +1,28 @@
+{
+  "element_id": "thunderstorms-overcast-snow__Lightning Bolt",
+  "element_tag": "path",
+  "svg_file": "lightning-bolt.svg",
+  "animations": [
+    {
+      "type": "attribute",
+      "attribute_name": "opacity",
+      "duration_ms": 2000,
+      "begin_ms": 0,
+      "repeat_count": "indefinite",
+      "values": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "1"
+      ],
+      "key_times": "0;0.25;0.33;0.42;0.5;0.57;0.63;0.67;1",
+      "calc_mode": null,
+      "key_splines": null
+    }
+  ]
+}

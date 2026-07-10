@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="dust-day__paint0_linear_1858_23058" x1="64" x2="64" y1="44" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#f8af18" />
+    </linearGradient>
+    <clipPath id="dust-day__clip0_1858_23058">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <path id="dust-day__Mask" fill="#000" d="M0 0h128L0 128z" />
+</svg>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="partly-cloudy-night-snow__paint0_linear_1858_8866" x1="37" x2="37" y1="34" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86c3db" />
+      <stop offset="1" stop-color="#72b9d5" />
+    </linearGradient>
+    <linearGradient id="partly-cloudy-night-snow__paint1_linear_1858_8866" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="partly-cloudy-night-snow__clip0_1858_8866">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <g id="partly-cloudy-night-snow__Moon">
+    <path id="partly-cloudy-night-snow__Moon_2" fill="url(#partly-cloudy-night-snow__paint0_linear_1858_8866)" stroke="#72b9d5" stroke-linecap="round" stroke-linejoin="round" d="M35.115 34.595c-1.737 8.568 5.638 16.62 14.198 16.188-1.64 5.05-6.424 8.717-12.095 8.717-7.03 0-12.718-5.621-12.718-12.541 0-6.214 4.588-11.375 10.615-12.364" />
+  </g>
+</svg>

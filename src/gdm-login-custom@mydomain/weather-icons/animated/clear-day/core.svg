@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="clear-day__paint0_linear_1802_5186" x1="64" x2="64" y1="44" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#f8af18" />
+    </linearGradient>
+  </defs>
+  <circle id="clear-day__Core" cx="64" cy="64" r="19.5" fill="url(#clear-day__paint0_linear_1802_5186)" stroke="#f8af18" />
+</svg>

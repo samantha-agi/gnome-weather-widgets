@@ -1,0 +1,10 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "clouds.svg",
+      "sidecar_file": "clouds.json",
+      "element_id": "cloudy__Clouds"
+    }
+  ]
+}

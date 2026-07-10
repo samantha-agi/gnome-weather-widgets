@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="haze-day__paint0_linear_1868_4608" x1="64" x2="64" y1="59" y2="85" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#f8af18" />
+    </linearGradient>
+  </defs>
+  <rect id="haze-day__Mask" width="128" height="75" fill="#000" />
+</svg>

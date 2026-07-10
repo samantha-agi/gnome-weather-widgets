@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="haze-night__paint0_linear_1868_4609" x1="64" x2="64" y1="40" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86c3db" />
+      <stop offset="1" stop-color="#72b9d5" />
+    </linearGradient>
+  </defs>
+  <path id="haze-night__Line 1" stroke="#e2e8f0" stroke-dasharray="12 9" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3" d="M40 89h48" />
+</svg>

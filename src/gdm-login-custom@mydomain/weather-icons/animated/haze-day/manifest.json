@@ -1,0 +1,35 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "mask0-1868-4608.svg",
+      "sidecar_file": "mask0-1868-4608.json",
+      "element_id": "haze-day__mask0_1868_4608"
+    },
+    {
+      "svg_file": "mask.svg",
+      "sidecar_file": "mask.json",
+      "element_id": "haze-day__Mask"
+    },
+    {
+      "svg_file": "core.svg",
+      "sidecar_file": "core.json",
+      "element_id": "haze-day__Core"
+    },
+    {
+      "svg_file": "rays.svg",
+      "sidecar_file": "rays.json",
+      "element_id": "haze-day__Rays"
+    },
+    {
+      "svg_file": "line-2.svg",
+      "sidecar_file": "line-2.json",
+      "element_id": "haze-day__Line 2"
+    },
+    {
+      "svg_file": "line-1.svg",
+      "sidecar_file": "line-1.json",
+      "element_id": "haze-day__Line 1"
+    }
+  ]
+}

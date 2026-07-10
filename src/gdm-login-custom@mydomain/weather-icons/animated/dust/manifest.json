@@ -1,0 +1,80 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "mask0-1858-23057.svg",
+      "sidecar_file": "mask0-1858-23057.json",
+      "element_id": "dust__mask0_1858_23057"
+    },
+    {
+      "svg_file": "mask.svg",
+      "sidecar_file": "mask.json",
+      "element_id": "dust__Mask"
+    },
+    {
+      "svg_file": "cloud-2.svg",
+      "sidecar_file": "cloud-2.json",
+      "element_id": "dust__Cloud_2"
+    },
+    {
+      "svg_file": "dust-1.svg",
+      "sidecar_file": "dust-1.json",
+      "element_id": "dust__Dust 1"
+    },
+    {
+      "svg_file": "dust-2.svg",
+      "sidecar_file": "dust-2.json",
+      "element_id": "dust__Dust 2"
+    },
+    {
+      "svg_file": "dust-3.svg",
+      "sidecar_file": "dust-3.json",
+      "element_id": "dust__Dust 3"
+    },
+    {
+      "svg_file": "dust-4.svg",
+      "sidecar_file": "dust-4.json",
+      "element_id": "dust__Dust 4"
+    },
+    {
+      "svg_file": "dust-5.svg",
+      "sidecar_file": "dust-5.json",
+      "element_id": "dust__Dust 5"
+    },
+    {
+      "svg_file": "dust-6.svg",
+      "sidecar_file": "dust-6.json",
+      "element_id": "dust__Dust 6"
+    },
+    {
+      "svg_file": "dust-7.svg",
+      "sidecar_file": "dust-7.json",
+      "element_id": "dust__Dust 7"
+    },
+    {
+      "svg_file": "dust-8.svg",
+      "sidecar_file": "dust-8.json",
+      "element_id": "dust__Dust 8"
+    },
+    {
+      "svg_file": "dust-9.svg",
+      "sidecar_file": "dust-9.json",
+      "element_id": "dust__Dust 9"
+    },
+    {
+      "svg_file": "dust-10.svg",
+      "sidecar_file": "dust-10.json",
+      "element_id": "dust__Dust 10"
+    },
+    {
+      "svg_file": "dust-11.svg",
+      "sidecar_file": "dust-11.json",
+      "element_id": "dust__Dust 11"
+    },
+    {
+      "svg_file": "dust-12.svg",
+      "sidecar_file": "dust-12.json",
+      "element_id": "dust__Dust 12"
+    }
+  ]
+}

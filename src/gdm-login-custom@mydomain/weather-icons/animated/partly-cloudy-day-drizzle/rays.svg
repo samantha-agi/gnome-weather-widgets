@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="partly-cloudy-day-drizzle__paint0_linear_1858_8515" x1="39" x2="39" y1="42" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#f8af18" />
+    </linearGradient>
+    <linearGradient id="partly-cloudy-day-drizzle__paint1_linear_1858_8515" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="partly-cloudy-day-drizzle__clip0_1858_8515">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <g id="partly-cloudy-day-drizzle__Rays">
+    <path fill="#f8af18" d="M37.688 31.313a1.312 1.312 0 1 1 2.624 0v6.125a1.312 1.312 0 1 1-2.624 0zM51.993 36.15a1.312 1.312 0 1 1 1.856 1.857l-4.33 4.33a1.312 1.312 0 1 1-1.857-1.855zM58.688 49.688a1.312 1.312 0 1 1 0 2.624h-6.126a1.312 1.312 0 1 1 0-2.624zM53.85 63.993a1.312 1.312 0 1 1-1.857 1.856l-4.33-4.33a1.312 1.312 0 1 1 1.855-1.857zM37.688 64.563a1.312 1.312 0 1 1 2.624 0v6.124a1.312 1.312 0 1 1-2.624 0zM28.482 59.662a1.312 1.312 0 1 1 1.856 1.856l-4.331 4.331a1.312 1.312 0 1 1-1.856-1.856zM25.438 49.688a1.312 1.312 0 1 1 0 2.624h-6.125a1.312 1.312 0 1 1 0-2.624zM30.338 40.482a1.312 1.312 0 1 1-1.856 1.856l-4.331-4.331a1.312 1.312 0 1 1 1.856-1.856z" />
+  </g>
+</svg>

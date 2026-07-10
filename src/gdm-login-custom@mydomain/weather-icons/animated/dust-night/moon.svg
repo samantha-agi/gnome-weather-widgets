@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="dust-night__paint0_linear_1858_23059" x1="64" x2="64" y1="32" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86c3db" />
+      <stop offset="1" stop-color="#72b9d5" />
+    </linearGradient>
+    <clipPath id="dust-night__clip0_1858_23059">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <g id="dust-night__Moon">
+    <path id="dust-night__Moon_2" fill="url(#dust-night__paint0_linear_1858_23059)" stroke="#72b9d5" stroke-linecap="round" stroke-linejoin="round" d="M60.302 32.582C55.282 53.7 73.6 74.348 95.325 72.515 91.52 85.77 79.2 95.5 64.536 95.5 46.837 95.5 32.5 81.344 32.5 63.898c0-16.03 12.107-29.27 27.802-31.316" />
+  </g>
+</svg>

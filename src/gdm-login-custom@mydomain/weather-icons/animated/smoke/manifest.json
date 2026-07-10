@@ -1,0 +1,25 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "clouds.svg",
+      "sidecar_file": "clouds.json",
+      "element_id": "smoke__Clouds"
+    },
+    {
+      "svg_file": "smoke-1.svg",
+      "sidecar_file": "smoke-1.json",
+      "element_id": "smoke__Smoke 1"
+    },
+    {
+      "svg_file": "smoke-2.svg",
+      "sidecar_file": "smoke-2.json",
+      "element_id": "smoke__Smoke 2"
+    },
+    {
+      "svg_file": "smoke-3.svg",
+      "sidecar_file": "smoke-3.json",
+      "element_id": "smoke__Smoke 3"
+    }
+  ]
+}

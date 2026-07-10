@@ -1,0 +1,20 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "line-3.svg",
+      "sidecar_file": "line-3.json",
+      "element_id": "mist__Line 3"
+    },
+    {
+      "svg_file": "line-2.svg",
+      "sidecar_file": "line-2.json",
+      "element_id": "mist__Line 2"
+    },
+    {
+      "svg_file": "line-1.svg",
+      "sidecar_file": "line-1.json",
+      "element_id": "mist__Line 1"
+    }
+  ]
+}

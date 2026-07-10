@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="fog__paint0_linear_1858_9374" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="fog__clip0_1858_9374">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <path id="fog__Line 1" stroke="#e2e8f0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3" d="M40 103h48" />
+</svg>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="dust-night__paint0_linear_1858_23059" x1="64" x2="64" y1="32" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86c3db" />
+      <stop offset="1" stop-color="#72b9d5" />
+    </linearGradient>
+    <clipPath id="dust-night__clip0_1858_23059">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <circle id="dust-night__Dust 6" cx="81" cy="69" r="3" fill="#fcd966" />
+</svg>

@@ -1,0 +1,8 @@
+{
+  "uuid": "gdm-login-custom@mydomain",
+  "name": "GDM Login Customizer",
+  "description": "Customize the GDM login screen: power-off button (top-right with confirmation), moon-phase widget on the left with a gold clock (HH:MM bold + DD-MM-YYYY small). Top-bar hiding is opt-in via HIDE_TOPBAR in extension.js.",
+  "shell-version": ["50"],
+  "session-modes": ["gdm", "user"],
+  "url": ""
+}

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="partly-cloudy-night-sleet__paint0_linear_1858_9096" x1="37" x2="37" y1="34" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86c3db" />
+      <stop offset="1" stop-color="#72b9d5" />
+    </linearGradient>
+    <linearGradient id="partly-cloudy-night-sleet__paint1_linear_1858_9096" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="partly-cloudy-night-sleet__clip0_1858_9096">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <path id="partly-cloudy-night-sleet__Snowflake 2" fill="#86c3db" d="m67.578 90.366-1.204-.689a2.9 2.9 0 0 0-.003-1.353l1.207-.69a.83.83 0 0 0 .309-1.141.85.85 0 0 0-1.153-.306l-1.206.69a2.9 2.9 0 0 0-1.184-.677v-1.38A.85.85 0 0 0 63.5 84a.843.843 0 0 0-.844.82v1.38a2.96 2.96 0 0 0-1.185.674l-1.205-.689a.848.848 0 0 0-1.259.616.83.83 0 0 0 .415.832l1.204.689c-.106.445-.105.909.003 1.353l-1.207.69a.83.83 0 0 0-.415.832.83.83 0 0 0 .62.7.85.85 0 0 0 .64-.084l1.205-.69c.334.318.74.55 1.184.675v1.382a.85.85 0 0 0 .844.82.843.843 0 0 0 .844-.82v-1.383c.441-.129.847-.36 1.184-.673l1.206.69a.847.847 0 0 0 1.259-.616.83.83 0 0 0-.415-.832m-4.712-.28a1.24 1.24 0 0 1-.622-1.25 1.25 1.25 0 0 1 .93-1.048 1.27 1.27 0 0 1 1.329.445 1.25 1.25 0 0 1 .093 1.393 1.28 1.28 0 0 1-1.73.46" />
+</svg>

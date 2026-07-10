@@ -1,0 +1,45 @@
+{
+  "viewbox": 128,
+  "layers": [
+    {
+      "svg_file": "secondary-cloud.svg",
+      "sidecar_file": "secondary-cloud.json",
+      "element_id": "overcast-sleet__Secondary Cloud"
+    },
+    {
+      "svg_file": "cloud-2.svg",
+      "sidecar_file": "cloud-2.json",
+      "element_id": "overcast-sleet__Cloud_2"
+    },
+    {
+      "svg_file": "snowflake-1.svg",
+      "sidecar_file": "snowflake-1.json",
+      "element_id": "overcast-sleet__Snowflake 1"
+    },
+    {
+      "svg_file": "snowflake-2.svg",
+      "sidecar_file": "snowflake-2.json",
+      "element_id": "overcast-sleet__Snowflake 2"
+    },
+    {
+      "svg_file": "snowflake-3.svg",
+      "sidecar_file": "snowflake-3.json",
+      "element_id": "overcast-sleet__Snowflake 3"
+    },
+    {
+      "svg_file": "raindrop-1.svg",
+      "sidecar_file": "raindrop-1.json",
+      "element_id": "overcast-sleet__Raindrop 1"
+    },
+    {
+      "svg_file": "raindrop-2.svg",
+      "sidecar_file": "raindrop-2.json",
+      "element_id": "overcast-sleet__Raindrop 2"
+    },
+    {
+      "svg_file": "raindrop-3.svg",
+      "sidecar_file": "raindrop-3.json",
+      "element_id": "overcast-sleet__Raindrop 3"
+    }
+  ]
+}

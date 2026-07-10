@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="partly-cloudy-day-sleet__paint0_linear_1858_9093" x1="39" x2="39" y1="42" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#f8af18" />
+    </linearGradient>
+    <linearGradient id="partly-cloudy-day-sleet__paint1_linear_1858_9093" x1="64.001" x2="64.001" y1="39" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3f7fe" />
+      <stop offset="1" stop-color="#e6effc" />
+    </linearGradient>
+    <clipPath id="partly-cloudy-day-sleet__clip0_1858_9093">
+      <rect width="128" height="128" fill="#fff" />
+    </clipPath>
+  </defs>
+  <path id="partly-cloudy-day-sleet__Raindrop 1" stroke="#0a5ad4" stroke-linecap="round" stroke-width="4" d="M52 88v3" />
+</svg>
