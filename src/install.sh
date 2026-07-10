@@ -147,22 +147,29 @@ echo ""
 echo ""
 echo ""
 
-# --- 0. patch config.js with user's choices ---------------------------------
-echo "==> Patching config.js with your settings"
-CONFIG_JS="${SRC_DIR}/config.js"
-# Replace WEATHER_LOCATION line
-sed -i "s|^export const WEATHER_LOCATION = .*|export const WEATHER_LOCATION = '${WEATHER_CITY}';|" "${CONFIG_JS}"
-# Replace HIDE_TOPBAR line
-sed -i "s|^export const HIDE_TOPBAR = .*|export const HIDE_TOPBAR = ${HIDE_TOPBAR_VAL};|" "${CONFIG_JS}"
-# Replace INVERT_MOON line
-sed -i "s|^export const INVERT_MOON = .*|export const INVERT_MOON = ${INVERT_MOON_VAL};|" "${CONFIG_JS}"
-# Replace ACCENT_COLOR line
-sed -i "s|^export const ACCENT_COLOR = .*|export const ACCENT_COLOR = '${ACCENT_COLOR}';|" "${CONFIG_JS}"
-echo "    WEATHER_LOCATION = '${WEATHER_CITY}'"
-echo "    HIDE_TOPBAR = ${HIDE_TOPBAR_VAL}"
-echo "    INVERT_MOON = ${INVERT_MOON_VAL}"
-echo "    ACCENT_COLOR = '${ACCENT_COLOR}'"
-echo ""
+# --- 0. write config.json to /etc/gdm-login-custom/ -------------------------
+echo "==> Writing config to /etc/gdm-login-custom/config.json"
+mkdir -p /etc/gdm-login-custom
+chmod 777 /etc/gdm-login-custom
+
+python3 - << PYEOF
+import json
+
+config = {
+    "accentColor": "${ACCENT_COLOR}",
+    "forecastHours": 12,
+    "location": "${WEATHER_CITY}",
+    "hideTopbar": ${HIDE_TOPBAR_VAL^},
+    "invertMoon": ${INVERT_MOON_VAL^},
+}
+
+with open("/etc/gdm-login-custom/config.json", "w") as f:
+    json.dump(config, f, indent=2)
+
+print(f"  Config written: {json.dumps(config)}")
+PYEOF
+
+chmod 666 /etc/gdm-login-custom/config.json
 
 # --- 1. copy extension to system location -----------------------------------
 echo "==> Installing extension to ${DEST_DIR}"
@@ -171,24 +178,18 @@ cp -r "${SRC_DIR}" "${DEST_DIR}"
 chmod -R 755 "${DEST_DIR}"
 chown -R root:root "${DEST_DIR}"
 
-# Make settings directory writable for the user session.
-mkdir -p /etc/gdm-login-custom
-chmod 777 /etc/gdm-login-custom
-
 # Generate theme.css, arrow.svg, and spinner.svg with the chosen accent color.
-# We use a small Python script to avoid duplicating generateThemeCss logic.
 python3 - "${ACCENT_COLOR}" /etc/gdm-login-custom << 'PYEOF'
 import sys, re
 
 hex_color = sys.argv[1]
 out_dir = sys.argv[2]
 
-# Parse hex to RGB
 m = re.match(r'^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$', hex_color, re.I)
 r, g, b = int(m.group(1), 16), int(m.group(2), 16), int(m.group(3), 16)
 
 # Generate theme.css
-theme_css = f"""/* GDM Login Customizer — theme (colors only, generated from settings) */
+theme_css = f"""/* GDM Login Customizer — theme (colors only, generated from config) */
 /* Accent color: {hex_color} (rgb {r}, {g}, {b}) */
 
 .glc-left-widget {{
@@ -336,7 +337,7 @@ spinner_svg = f'<svg fill="{hex_color}" viewBox="0 0 24 24" xmlns="http://www.w3
 with open(f"{out_dir}/spinner.svg", "w") as f:
     f.write(spinner_svg)
 
-print(f"Generated theme.css, arrow.svg, spinner.svg with color {hex_color}")
+print(f"  Generated theme.css, arrow.svg, spinner.svg with color {hex_color}")
 PYEOF
 
 chmod 666 /etc/gdm-login-custom/theme.css

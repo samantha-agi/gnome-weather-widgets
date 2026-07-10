@@ -20,13 +20,11 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 
 import {
-    HIDE_TOPBAR,
     MOON_SIZE,
     EDGE_MARGIN,
-    WEATHER_LOCATION,
     WEATHER_GAP,
 } from './config.js';
-import { loadSettings, getThemeCssPath } from './settings.js';
+import { loadConfig, getThemeCssPath } from './settings.js';
 import { MoonPhaseWidget } from './moonPhaseWidget.js';
 import { WeatherWidget } from './weatherWidget.js';
 import { PowerOffButton } from './powerButton.js';
@@ -41,8 +39,8 @@ export default class GdmLoginCustomExtension extends Extension {
         this._timeouts = [];
         this._mode = mode;
 
-        // Load user settings (overrides config.js defaults).
-        this._settings = loadSettings();
+        // Load user config (overrides config.js defaults).
+        this._config = loadConfig();
 
         // Load stylesheets: structural (extension dir) + colors (/etc/gdm-login-custom/).
         this._stylesheetFile = Gio.File.new_for_path(this.path + '/stylesheet.css');
@@ -77,7 +75,7 @@ export default class GdmLoginCustomExtension extends Extension {
         this._hiddenPanelBox = null;
 
         // --- 1) Hide the top bar ---
-        if (HIDE_TOPBAR) {
+        if (this._config.hideTopbar) {
             if (Main.panel) {
                 this._hiddenPanelActor = Main.panel;
                 Main.panel.hide();
@@ -86,12 +84,12 @@ export default class GdmLoginCustomExtension extends Extension {
                 this._hiddenPanelBox = Main.layoutManager.panelBox;
                 Main.layoutManager.panelBox.hide();
             }
-            log('[gdm-login-custom] HIDE_TOPBAR is true — top bar hidden.');
+            log('[gdm-login-custom] hideTopbar is true — top bar hidden.');
         }
 
         // --- 2) Moon + clock widget ---
         const imagePath = this.path + '/moon.png';
-        this._moon = new MoonPhaseWidget(imagePath, MOON_SIZE);
+        this._moon = new MoonPhaseWidget(imagePath, MOON_SIZE, this._config.invertMoon);
 
         this._timeLabel = new St.Label({ text: '--:--', style_class: 'glc-clock-time' });
         this._dateLabel = new St.Label({ text: '--/--/----', style_class: 'glc-clock-date' });
@@ -109,7 +107,7 @@ export default class GdmLoginCustomExtension extends Extension {
         this._leftWidget.add_child(clockBox);
 
         // --- 2b) Weather widget ---
-        if (WEATHER_LOCATION) {
+        if (this._config.location) {
             try {
                 this._weatherWidget = new WeatherWidget(this.path);
             } catch (e) {
@@ -118,7 +116,7 @@ export default class GdmLoginCustomExtension extends Extension {
         }
 
         // --- 3) Power-off button ---
-        if (HIDE_TOPBAR) {
+        if (this._config.hideTopbar) {
             this._powerButton = new PowerOffButton();
         }
 
@@ -220,12 +218,12 @@ export default class GdmLoginCustomExtension extends Extension {
     // ======================================================================
 
     _enableUser() {
-        if (WEATHER_LOCATION) {
+        if (this._config.location) {
             this._weatherPanel = new WeatherPanel(this.path);
             Main.panel._rightBox.insert_child_at_index(this._weatherPanel, 0);
             log('[gdm-login-custom] Weather button added to topbar.');
         } else {
-            log('[gdm-login-custom] WEATHER_LOCATION is null — weather panel disabled.');
+            log('[gdm-login-custom] location is null — weather panel disabled.');
         }
     }
 

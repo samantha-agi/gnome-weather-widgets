@@ -14,7 +14,7 @@ import Soup from 'gi://Soup';
 import St from 'gi://St';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
-import { loadSettings, saveSettings } from './settings.js';
+import { loadConfig, saveConfig } from './settings.js';
 import { WEATHER_LANG } from './config.js';
 
 export const SettingsModal = GObject.registerClass(
@@ -29,7 +29,7 @@ class SettingsModal extends St.BoxLayout {
         this._httpSession = null;
         this._stageKey = null;
 
-        const settings = loadSettings();
+        const settings = loadConfig();
 
         // Title
         const title = new St.Label({
@@ -198,9 +198,12 @@ class SettingsModal extends St.BoxLayout {
                 return;
             }
 
-            // All valid — save (saveSettings writes to /etc/gdm-login-custom/)
-            const settings = { accentColor: color, forecastHours: slots, location };
-            saveSettings(settings);
+            // All valid — save (saveConfig writes to /etc/gdm-login-custom/config.json)
+            const config = loadConfig();
+            config.accentColor = color;
+            config.forecastHours = slots;
+            config.location = location;
+            saveConfig(config);
 
             log('[gdm-login-custom] Settings saved + theme.css + arrow.svg regenerated');
 

@@ -12,11 +12,10 @@ import GObject from 'gi://GObject';
 import St from 'gi://St';
 
 import { getMoonPhase } from './moonPhase.js';
-import { INVERT_MOON } from './config.js';
 
 export const MoonPhaseWidget = GObject.registerClass(
 class MoonPhaseWidget extends St.DrawingArea {
-    _init(imagePath, size = 140) {
+    _init(imagePath, size = 140, invertMoon = false) {
         super._init({
             width: size,
             height: size,
@@ -26,6 +25,7 @@ class MoonPhaseWidget extends St.DrawingArea {
         this._size = size;
         this._imagePath = imagePath;
         this._pixbuf = null;
+        this._invertMoon = invertMoon;
 
         try {
             this._pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
@@ -114,7 +114,7 @@ class MoonPhaseWidget extends St.DrawingArea {
         // x = cos(phase * 2π)  →  +1 at new, 0 at quarters, -1 at full.
         const x = Math.cos(phase * 2 * Math.PI);
         // For southern hemisphere, the lit side is mirrored.
-        const isWaxing = INVERT_MOON ? phase >= 0.5 : phase < 0.5;
+        const isWaxing = this._invertMoon ? phase >= 0.5 : phase < 0.5;
 
         // Cubic Bezier approximation constant for a circle is 4/3.
         const k = 4 / 3;

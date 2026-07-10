@@ -17,7 +17,7 @@ import {
     WEATHER_REFRESH_MINUTES,
     WEATHER_LANG,
 } from './config.js';
-import { loadSettings } from './settings.js';
+import { loadConfig } from './settings.js';
 import { getWeatherIconName, isDaytimeFromAstronomy, kmhToBeaufort } from './weatherCodes.js';
 import { AnimatedIcon } from './animatedIcon.js';
 import { LoadingWidget } from './loadingWidget.js';
@@ -102,7 +102,7 @@ class WeatherWidget extends St.BoxLayout {
     }
 
     _fetchWeather() {
-        const settings = loadSettings();
+        const settings = loadConfig();
         const location = settings.location;
         log(`[gdm-login-custom] Fetching weather for ${location}`);
         if (!this._httpSession) {
@@ -227,7 +227,7 @@ class WeatherWidget extends St.BoxLayout {
     }
 
     _renderForecast(allEntries) {
-        const settings = loadSettings();
+        const settings = loadConfig();
         const forecastHours = settings.forecastHours;
         // Clear existing forecast items.
         const children = this._forecastBox.get_children();

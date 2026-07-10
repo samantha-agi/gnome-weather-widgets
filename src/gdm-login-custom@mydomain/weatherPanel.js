@@ -15,7 +15,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 import { WeatherWidget } from './weatherWidget.js';
 import { SettingsModal } from './settingsModal.js';
-import { loadSettings, getThemeCssPath } from './settings.js';
+import { loadConfig, getThemeCssPath } from './settings.js';
 import { getWeatherIconName, isDaytimeFromAstronomy } from './weatherCodes.js';
 import { WEATHER_LANG, WEATHER_UNITS, WEATHER_REFRESH_MINUTES } from './config.js';
 
@@ -76,7 +76,7 @@ class WeatherPanel extends St.Button {
     }
 
     _fetchButtonWeather() {
-        const settings = loadSettings();
+        const settings = loadConfig();
         const location = settings.location;
 
         if (!this._httpSession)
