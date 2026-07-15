@@ -182,6 +182,9 @@ class WeatherPanel extends St.Button {
         this._positionPanel();
         this._panel.set_translation(0, -1000, 0);
         this._panel.set_opacity(0);
+        // Non-interactive from boot (not just visually off-screen): an opacity-0
+        // actor still receives pointer events, so hide() removes it from picking.
+        this._panel.hide();
     }
 
     _reloadTheme() {
@@ -236,6 +239,10 @@ class WeatherPanel extends St.Button {
 
     _slideDown() {
         this._isOpen = true;
+        // Re-enable input + make visible before sliding in (matches the hide()
+        // in _slideUp; panel was hidden when collapsed to avoid the top-right
+        // phantom click target).
+        this._panel.show();
         this._positionPanel();
 
         // Get actual panel height for the slide animation.
@@ -308,6 +315,14 @@ class WeatherPanel extends St.Button {
         });
         this._panel.add_transition('fade', fade);
         fade.start();
+
+        // The panel was slid off-screen via translation-y and faded to opacity 0,
+        // but an opacity-0 actor still receives pointer events in Clutter, and the
+        // gear button (bottom-right of the panel) gets translated up by panelH
+        // (~400px) to the top-right of the screen — so it would catch clicks there
+        // and open the settings modal. hide() removes the actor from picking
+        // entirely, fixing the invisible click target.
+        this._panel.hide();
     }
 
     destroy() {
