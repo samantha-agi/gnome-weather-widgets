@@ -36,6 +36,7 @@ class WeatherWidget extends St.BoxLayout {
         this._windIconsDir = extensionPath + '/weather-icons/wind';
         this._httpSession = null;
         this._refreshTimeoutId = null;
+        this._fetchInFlight = false;  // dedupe guard for concurrent network-changed triggers
         this._currentIcon = null;
         this._currentIconWidget = null;
         this._currentTempLabel = null;
@@ -102,6 +103,15 @@ class WeatherWidget extends St.BoxLayout {
     }
 
     _fetchWeather() {
+        // Dedupe: if a fetch is already in flight, ignore subsequent triggers.
+        // network-changed can fire many times during a flaky connection, and
+        // stacking concurrent fetches leads to overlapping _renderWeather()
+        // calls that each create a new AnimatedIcon — multiplying the actors
+        // (and animation timeouts) we have to clean up.
+        if (this._fetchInFlight)
+            return;
+        this._fetchInFlight = true;
+
         const settings = loadConfig();
         const location = settings.location;
         log(`[gdm-login-custom] Fetching weather for ${location}`);
@@ -111,6 +121,7 @@ class WeatherWidget extends St.BoxLayout {
             } catch (e) {
                 log(`[gdm-login-custom] Soup.Session failed: ${e}`);
                 this._currentDescLabel.set_text('Weather unavailable (no Soup)');
+                this._fetchInFlight = false;
                 return;
             }
         }
@@ -133,6 +144,7 @@ class WeatherWidget extends St.BoxLayout {
                     this._showLoading();
                     // Don't schedule a retry — the network-changed signal
                     // will fire when connectivity is restored.
+                    this._fetchInFlight = false;
                     return;
                 }
                 const data = JSON.parse(text);
@@ -151,6 +163,9 @@ class WeatherWidget extends St.BoxLayout {
                 log(`[gdm-login-custom] weather fetch failed: ${e}`);
                 this._showLoading();
                 // No retry — network-changed signal handles it.
+            } finally {
+                // Always release the in-flight lock so a future trigger can fetch.
+                this._fetchInFlight = false;
             }
         });
     }
@@ -191,9 +206,18 @@ class WeatherWidget extends St.BoxLayout {
 
             log(`[gdm-login-custom] Weather: code=${code} isDay=${isDay} icon=${iconName} temp=${current.temp_C}C desc=${current.weatherDesc[0].value}`);
 
-            // Replace the current icon widget's child.
-            if (this._currentIcon)
-                this._currentIcon.destroy();
+            // Replace the current icon widget's child. Tear the OLD one down
+            // explicitly first (its 'destroy' signal will stop its animation
+            // timeouts). destroy() on an already-destroyed actor is a no-op or
+            // throws; either way we null the reference after so a re-entered
+            // _renderWeather (multiple network-changed signals close together)
+            // can't double-destroy.
+            if (this._currentIcon) {
+                try {
+                    this._currentIcon.destroy();
+                } catch (e) {}
+                this._currentIcon = null;
+            }
             try {
                 this._currentIcon = new AnimatedIcon(iconDir, WEATHER_ICON_SIZE);
             } catch (e) {
@@ -379,6 +403,7 @@ class WeatherWidget extends St.BoxLayout {
     }
 
     destroy() {
+        this._fetchInFlight = false;
         this._stopLoading();
         if (this._networkChangedId && this._networkMonitor) {
             try { this._networkMonitor.disconnect(this._networkChangedId); } catch (e) {}
@@ -392,6 +417,16 @@ class WeatherWidget extends St.BoxLayout {
         if (this._httpSession) {
             try { this._httpSession.abort(); } catch (e) {}
             this._httpSession = null;
+        }
+        // The current animated icon is a child of _currentIconWidget and would
+        // be torn down when this widget is destroyed, but destroying it
+        // explicitly first guarantees its animation timeouts are stopped
+        // immediately (its 'destroy' signal handler does the cleanup).
+        if (this._currentIcon) {
+            try {
+                this._currentIcon.destroy();
+            } catch (e) {}
+            this._currentIcon = null;
         }
         super.destroy();
     }

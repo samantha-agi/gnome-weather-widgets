@@ -35,6 +35,10 @@ class AnimatedIcon extends St.Widget {
         this._size = size;
         this._iconDir = iconDir;
         this._layers = [];  // [{ icon, transitions: [...] }]
+        this._timeoutIds = [];  // central registry of all GLib timeouts owned by this icon
+        this._destroyed = false;
+
+        this.connect('destroy', () => this._onDestroy());
 
         try {
             // Read manifest.json (preserves document order so z-order is correct).
@@ -183,8 +187,17 @@ class AnimatedIcon extends St.Widget {
         const startTime = Date.now() + beginOffset;  // beginOffset is negative
 
         // Property setter function — calls the right Clutter.Actor setter
-        // based on the animation type.
+        // based on the animation type. Returns true on success, false if the
+        // actor is gone (so the caller can stop the timeout).
         const setProperty = (value) => {
+            // The primary guard is the _destroyed flag (set by the 'destroy'
+            // signal handler). _isIconGone is a cheap null check only — we do
+            // NOT probe GObject state because there is no reliable query in
+            // this Clutter version (is_destroyed() doesn't exist; get_stage()
+            // also returns null for a freshly-created unparented actor, which
+            // would wrongly kill the animation on its first tick).
+            if (this._destroyed || this._isIconGone(icon))
+                return false;
             try {
                 if (anim.type === 'transform' && anim.transform_type === 'translate') {
                     // value is { x, y }. Translate the actor from its base
@@ -196,12 +209,15 @@ class AnimatedIcon extends St.Widget {
                     icon.set_rotation_angle(Clutter.RotateAxis.Z_AXIS, value);
                 }
             } catch (e) {
-                // log once on first failure, then stop trying
+                // A disposed actor throws here. Log once, then signal "gone" so
+                // the tick stops the timeout instead of hammering a dead actor.
                 if (!setProperty._errored) {
                     setProperty._errored = true;
-                    log(`[gdm-login-custom] AnimatedIcon: setProperty failed: ${e}`);
+                    log(`[gdm-login-custom] AnimatedIcon: setProperty failed, stopping animation: ${e}`);
                 }
+                return false;
             }
+            return true;
         };
 
         // Cubic-bezier easing function for SVG calcMode="spline".
@@ -231,6 +247,12 @@ class AnimatedIcon extends St.Widget {
         // The tick function. Computes current progress, finds surrounding
         // keyframes, interpolates, and sets the property.
         const tick = () => {
+            // Hard stop if the icon is being torn down. Returning SOURCE_REMOVE
+            // cancels this timeout so it can never fire again — preventing the
+            // runaway-disposed-error loop that froze the desktop.
+            if (this._destroyed || this._isIconGone(icon))
+                return GLib.SOURCE_REMOVE;
+
             const now = Date.now();
             let elapsed = now - startTime;
             // Modulo to keep within one cycle.
@@ -243,7 +265,8 @@ class AnimatedIcon extends St.Widget {
             // Now keyTimes[i] <= progress <= keyTimes[i+1] (or i is last index).
             if (i >= keyTimes.length - 1) {
                 // Past the last keyframe — use the last value.
-                setProperty(parsedValues[parsedValues.length - 1]);
+                if (!setProperty(parsedValues[parsedValues.length - 1]))
+                    return GLib.SOURCE_REMOVE;  // actor gone — stop the timeout
                 return GLib.SOURCE_CONTINUE;
             }
             const t0 = keyTimes[i], t1 = keyTimes[i + 1];
@@ -257,15 +280,18 @@ class AnimatedIcon extends St.Widget {
                 easedProgress = bezierEase(segmentProgress, sp.x1, sp.y1, sp.x2, sp.y2);
             }
 
-            setProperty(lerp(v0, v1, easedProgress));
+            if (!setProperty(lerp(v0, v1, easedProgress)))
+                return GLib.SOURCE_REMOVE;  // actor gone — stop the timeout
             return GLib.SOURCE_CONTINUE;
         };
 
         // Run one tick immediately to set the initial state.
         tick();
 
-        // Schedule the recurring tick.
+        // Schedule the recurring tick and register it centrally so the
+        // 'destroy' signal handler can find and remove it.
         const timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, tickMs, tick);
+        this._timeoutIds.push(timeoutId);
         return {
             timeoutId,
             start: () => {},  // already running
@@ -275,19 +301,58 @@ class AnimatedIcon extends St.Widget {
             stop: () => {
                 if (timeoutId) {
                     GLib.source_remove(timeoutId);
+                    const idx = this._timeoutIds.indexOf(timeoutId);
+                    if (idx >= 0)
+                        this._timeoutIds.splice(idx, 1);
                 }
             },
         };
     }
 
-    destroy() {
+    // Cheap pre-check used by the animation tick: only returns true for a
+    // definitely-null reference. We intentionally do NOT probe the actor's
+    // GObject state here — there is no reliable built-in boolean for "disposed"
+    // in this Clutter version (is_destroyed() doesn't exist; get_stage() also
+    // returns null for a freshly-created, not-yet-parented actor, which would
+    // wrongly kill the animation on its first tick). The real disposal guard is
+    // the _destroyed flag (set by the 'destroy' signal handler) plus the
+    // try/catch in setProperty() / tick(), which catches the
+    // "has been already disposed" throw from a dead actor.
+    _isIconGone(icon) {
+        return !icon;
+    }
+
+    // Single cleanup entry point, wired to the 'destroy' signal in _init.
+    // Runs whether teardown was initiated by us, by our parent, or by GNOME
+    // Shell during a session-mode switch. Idempotent.
+    _onDestroy() {
+        if (this._destroyed)
+            return;
+        this._destroyed = true;
+
+        // Remove every GLib timeout this icon scheduled. These are the
+        // animation drivers; if even one survives its actor, it will spin
+        // forever logging disposed-object errors on the compositor thread.
+        for (const id of this._timeoutIds) {
+            try { GLib.source_remove(id); } catch (e) {}
+        }
+        this._timeoutIds = [];
+
+        // Also run the per-transition stop() hooks for completeness (they
+        // update the registry and any future cleanup a transition might add).
         for (const layer of this._layers) {
             for (const t of layer.transitions) {
-                // Stop the GLib timeout driving this animation.
                 try { t.stop(); } catch (e) {}
             }
         }
         this._layers = [];
+    }
+
+    // Kept for backward compatibility with any external caller that invokes
+    // icon.destroy() directly. It just triggers the normal actor teardown,
+    // which fires the 'destroy' signal → _onDestroy(). Do NOT put cleanup
+    // logic here — it will NOT run when the parent destroys this actor.
+    destroy() {
         super.destroy();
     }
 });
