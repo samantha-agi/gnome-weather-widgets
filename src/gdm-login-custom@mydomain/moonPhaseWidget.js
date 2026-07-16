@@ -30,6 +30,11 @@ class MoonPhaseWidget extends St.DrawingArea {
         try {
             this._pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
                 imagePath, size, size, true);
+            // Crop to the opaque disc and scale it to fill the widget, so the
+            // disc (not the image canvas with its transparent padding) fills the
+            // area. Without this the disc is smaller than the widget and the
+            // padding shows as a black border that clips the crescent.
+            this._discPixbuf = this._buildDiscPixbuf(this._pixbuf, size);
             log(`[gdm-login-custom] Loaded moon pixbuf: ${this._pixbuf.get_width()}x${this._pixbuf.get_height()}`);
         } catch (e) {
             log(`[gdm-login-custom] Failed to load moon image at ${imagePath}: ${e}`);
@@ -67,8 +72,17 @@ class MoonPhaseWidget extends St.DrawingArea {
         const cy = height / 2;
         const r = Math.min(width, height) / 2;
 
-        // 1) Draw the moon image, scaled to fit.
-        if (this._pixbuf) {
+        // 1) Draw the moon image, scaled to fill the widget via the cropped disc
+        //    (transparent padding removed) so there's no black border.
+        if (this._discPixbuf) {
+            const dw = this._discPixbuf.get_width();
+            const dh = this._discPixbuf.get_height();
+            const dx = (width - dw) / 2;
+            const dy = (height - dh) / 2;
+            Gdk.cairo_set_source_pixbuf(cr, this._discPixbuf, dx, dy);
+            cr.paint();
+        } else if (this._pixbuf) {
+            // Fallback: raw image, fitted (may show padding).
             const pw = this._pixbuf.get_width();
             const ph = this._pixbuf.get_height();
             const scale = Math.min(width / pw, height / ph);
@@ -148,5 +162,41 @@ class MoonPhaseWidget extends St.DrawingArea {
         );
         cr.closePath();
         cr.fill();
+    }
+
+    /**
+     * Crop the pixbuf to its opaque disc (removing transparent padding) and
+     * scale it to fill the widget. This makes the disc, not the image canvas,
+     * fill the area — so there's no transparent-padding border.
+     */
+    _buildDiscPixbuf(pixbuf, size) {
+        try {
+            const pw = pixbuf.get_width();
+            const ph = pixbuf.get_height();
+            const nch = pixbuf.get_n_channels();
+            const rs = pixbuf.get_rowstride();
+            const pixels = pixbuf.get_pixels();
+
+            let minX = pw, minY = ph, maxX = -1, maxY = -1;
+            for (let y = 0; y < ph; y++) {
+                const row = y * rs;
+                for (let x = 0; x < pw; x++) {
+                    if (pixels[row + x * nch + (nch - 1)] > 16) {
+                        if (x < minX) minX = x;
+                        if (x > maxX) maxX = x;
+                        if (y < minY) minY = y;
+                        if (y > maxY) maxY = y;
+                    }
+                }
+            }
+            if (maxX < 0)
+                return null;
+
+            const sub = pixbuf.new_subpixbuf(minX, minY, maxX - minX + 1, maxY - minY + 1);
+            return sub.scale_simple(size, size, GdkPixbuf.InterpType.BILINEAR);
+        } catch (e) {
+            log(`[gdm-login-custom] _buildDiscPixbuf failed: ${e}`);
+            return null;
+        }
     }
 });
