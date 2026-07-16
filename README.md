@@ -189,7 +189,7 @@ I'm not running a VM so I can't make screenshots without using a camera if I'm n
 
 Improved drawing of the moon. Better crescent. Currently at 6%, day 3 after new moon.
 
-![Screenshot: widget when logged in](/assets/screen04.png)
+![Screenshot: new moon](/assets/screen04.jpg)
 
 ## Waiting for network connection
 
