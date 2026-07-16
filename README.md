@@ -185,7 +185,7 @@ sudo nano /usr/share/glib-2.0/schemas/com.ubuntu.login-screen.gschema.xml
 
 I'm not running a VM so I can't make screenshots without using a camera if I'm not signed in.
 
-##July 16th 2026: Improved moon [update: b568ebbed728ccac0673b6f92c3c6b6bb874967e]
+## July 16th 2026: Improved moon [update: b568ebbed728ccac0673b6f92c3c6b6bb874967e]
 
 Improved drawing of the moon. Better crescent. Currently at 6%, day 3 after new moon.
 
